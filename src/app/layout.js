@@ -1,7 +1,9 @@
-import { Inter } from "next/font/google";
+import { Inter, Nunito } from "next/font/google";
 import "./globals.css";
+import { BrcContextProvider } from "@/context/context";
+import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+       <Script src="https://unpkg.com/@cmdcode/crypto-utils"></Script>
+      <BrcContextProvider>
       <body className={inter.className}>{children}</body>
+      </BrcContextProvider>
     </html>
   );
 }
